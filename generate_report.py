@@ -1,7 +1,7 @@
 import os
 
 status = "Success"
-message = "모든 계산 테스트가 통과되었습니다"
+message = "修正確認"
 
 html_content = f"""<!DOCTYPE html>
 <html lang="en">
