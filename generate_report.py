@@ -1,7 +1,7 @@
 import os
 
 status = "Success"
-message = "修正確認"
+message = "修正確認05:45"
 
 html_content = f"""<!DOCTYPE html>
 <html lang="en">
