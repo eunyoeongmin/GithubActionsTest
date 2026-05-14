@@ -1,6 +1,13 @@
 name: Python CI
 
-on: push
+on: 
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   test-job:
@@ -19,3 +26,11 @@ jobs:
 
       - name: 4. 테스트 실행하기
         run: pytest test_calc.py
+
+      - name: 5. GitHub Upload
+        uses: actions/upload-artifact@v3
+        with:
+          path: 'public/'
+
+      - name: 6. GitHub Pages Deploy
+        uses: actions/deploy-pages@v4
