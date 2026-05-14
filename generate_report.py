@@ -17,5 +17,5 @@ html_content = f"""<!DOCTYPE html>
 </html>"""
 
 os.makedirs("public", exist_ok=True)
-with open("public/report.html", "w", encoding="utf-8") as f:
+with open("public/index.html", "w", encoding="utf-8") as f:
     f.write(html_content)
