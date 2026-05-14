@@ -21,4 +21,7 @@ jobs:
         run: pytest test_calc.py
 
       - name: 5. auto merge
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
         run: gh pr merge --auto --merge "$PR_URL"
