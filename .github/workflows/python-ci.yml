@@ -1,0 +1,24 @@
+name: Python CI
+
+on: push
+
+jobs:
+  test-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 1. 내 코드 가져오기
+        uses: actions/checkout@v4
+
+      - name: 2. 컴퓨터에 파이썬 3.12 설치하기
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          
+      - name: 3. 파이썬 테스트 도구(pytest) 설치하기
+        run: pip install pytest
+
+      - name: 4. 테스트 실행하기
+        run: pytest test_calc.py
+
+      - name: 5. auto merge
+        run: gh pr merge --auto --merge "$PR_URL"

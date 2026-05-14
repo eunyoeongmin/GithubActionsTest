@@ -1,0 +1,13 @@
+name: My First Workflow
+
+on: workflow_dispatch
+
+jobs:
+  say-hello-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 코드 가져오기
+        uses: actions/checkout@v4
+
+      - name: 인사하기
+        run: echo "Hello GitHub Actions"
