@@ -2,7 +2,7 @@ name: Python CI
 
 on: 
   push:
-    branches: [ main ]
+    branches: [ main, deployTest ]
 
 permissions:
   contents: read
@@ -27,10 +27,13 @@ jobs:
       - name: 4. 테스트 실행하기
         run: pytest test_calc.py
 
-      - name: 5. GitHub Upload
-        uses: actions/upload-artifact@v3
+      - name: 5. 리포트 생성하기
+        run: python generate_report.py
+
+      - name: 6. Pages 아티팩트 업로드
+        uses: actions/upload-pages-artifact@v3
         with:
           path: 'public/'
 
-      - name: 6. GitHub Pages Deploy
+      - name: 7. GitHub Pages 배포
         uses: actions/deploy-pages@v4
